@@ -1,0 +1,32 @@
+  <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+      <div class="container-fluid">
+          <div class="inner-sec-shop px-lg-4 px-3">
+                <div class="slider-img mid-sec">
+                  <h3 class="tittle-grraabit my-lg-4 my-4" style="text-align: center">POPULAR MOVIES</h3>
+                    <div class="row">
+                          <div class="col-sm-4"></div>
+                          <div class="col-sm-4"></div>
+                          <div class="col-sm-4"></div>
+                    </div>
+                  
+                  <div class="mid-slider"> 
+                          <div class="row" id="progress_3">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4" style="text-align: center">
+                                <img  src="../../assets/images/30.gif">                           
+                            </div>
+                            <div class="col-sm-4"></div>
+                          </div>
+                    <div id="target_3">
+                        <div  *ngFor="let movie of popular_movielist" id="parent_3" style="width: 340px; height:450px;margin-right: 20px;">
+                        <div>
+                          <img src="https://image.tmdb.org/t/p/w500/{{movie.movieimgpath}}"  style="min-height: 350px; max-height: 350px;" alt="Card image cap">
+                        </div>
+                        <h4 style="text-align: center">{{ movie.moviename}}</h4>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+  </section>
