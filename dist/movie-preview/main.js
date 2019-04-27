@@ -23,6 +23,105 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/_services/index.ts":
+/*!********************************!*\
+  !*** ./src/_services/index.ts ***!
+  \********************************/
+/*! exports provided: PagerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pager_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pager.service */ "./src/_services/pager.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PagerService", function() { return _pager_service__WEBPACK_IMPORTED_MODULE_0__["PagerService"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/_services/pager.service.ts":
+/*!****************************************!*\
+  !*** ./src/_services/pager.service.ts ***!
+  \****************************************/
+/*! exports provided: PagerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagerService", function() { return PagerService; });
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/underscore.js");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(underscore__WEBPACK_IMPORTED_MODULE_0__);
+
+var PagerService = /** @class */ (function () {
+    function PagerService() {
+    }
+    PagerService.prototype.getPager = function (totalItems, currentPage, pageSize) {
+        if (currentPage === void 0) { currentPage = 1; }
+        if (pageSize === void 0) { pageSize = 10; }
+        // calculate total pages
+        var totalPages = Math.ceil(totalItems / pageSize);
+        var startPage, endPage;
+        // if (totalPages <= 10) {
+        //     // less than 10 total pages so show all
+        //     startPage = 1;
+        //     endPage = totalPages;
+        // } else {
+        //     // more than 10 total pages so calculate start and end pages
+        //     if (currentPage <= 6) {
+        //         startPage = 1;
+        //         endPage = 10;
+        //     } else if (currentPage + 4 >= totalPages) {
+        //         startPage = totalPages - 9;
+        //         endPage = totalPages;
+        //     } else {
+        //         startPage = currentPage - 5;
+        //         endPage = currentPage + 4;
+        //     }
+        // }
+        if (totalPages <= 5) {
+            startPage = 1;
+            endPage = totalPages;
+        }
+        else {
+            if (currentPage <= 3) {
+                startPage = 1;
+                endPage = 5;
+            }
+            else if (currentPage + 1 >= totalPages) {
+                startPage = totalPages - 4;
+                endPage = totalPages;
+            }
+            else {
+                startPage = currentPage - 2;
+                endPage = currentPage + 2;
+            }
+        }
+        // calculate start and end item indexes
+        var startIndex = (currentPage - 1) * pageSize;
+        var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+        // create an array of pages to ng-repeat in the pager control
+        var pages = underscore__WEBPACK_IMPORTED_MODULE_0__["range"](startPage, endPage + 1);
+        // return object with all pager properties required by the view
+        return {
+            totalItems: totalItems,
+            currentPage: currentPage,
+            pageSize: pageSize,
+            totalPages: totalPages,
+            startPage: startPage,
+            endPage: endPage,
+            startIndex: startIndex,
+            endIndex: endIndex,
+            pages: pages
+        };
+    };
+    return PagerService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing/app-routing.module.ts":
 /*!***************************************************!*\
   !*** ./src/app/app-routing/app-routing.module.ts ***!
@@ -88,7 +187,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\r\nbody{\r\nbackground-image: url('data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAnQAAAEYCAYAAADVt2tzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAULSURBVHhe7dYxEQAgDAAxzGCBsf5dFR1/lyEecu6bBQCgS+gAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAANJmP9qX9Rv3512QAAAAAElFTkSuQmCC');\r\n}\r\n\r\n.bgimg{\r\n    background-image: url('data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAnQAAAEYCAYAAADVt2tzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAULSURBVHhe7dYxEQAgDAAxzGCBsf5dFR1/lyEecu6bBQCgS+gAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAANJmP9qX9Rv3512QAAAAAElFTkSuQmCC');\r\n    }\r\n    "
 
 /***/ }),
 
@@ -99,7 +198,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-1\">\n\t\t\t\t<!DOCTYPE html>\n\t\t\t\t<html>\n\t\t\t\t<head>\n\t\t\t\t\t<meta charset=\"utf-8\">\n\t\t\t\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n\t\t\t\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t\t\t\t<link rel=\"stylesheet\" href=\"../assets/demo.css\">\n\t\t\t\t\t<link rel=\"stylesheet\" href=\"../assets/sidebar-left.css\">\n\t\t\t\t\t<link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\">\n\t\t\t\t\t<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>\n\t\t\t\t\t<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n\t\t\t\t</head>\n\t\t\t\t<body>\n\t\t\t\t<aside class=\"sidebar-left\">\n\t\t\t\t<a class=\"company-logo\">Filmbeat</a>\n\t\t\t\t<div class=\"sidebar-links\">\n\t\t\t\t\t<a class=\"link-blue\" routerLink=\"/trending\"><i class=\"fa fa-bar-chart\"></i>Trending Chart</a>\n\t\t\t\t\t<a class=\"link-red \" routerLink=\"/popular\"> <i class=\"fa fa-file-video-o\"></i>Popular Movies</a>\n\t\t\t\t</div>\n\t\t\t\t</aside>\t\n\t\t\t\t</body>\n\t\t\t\t</html>\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-11\">\n\t\t\t\t\t<router-outlet></router-outlet>\n\t\t\t</div>\n\t</div>\n\n\n</div>"
+module.exports = "<link rel=\"stylesheet\" href=\"../assets/demo.css\">\n<link rel=\"stylesheet\" href=\"../assets/sidebar-left.css\">\n<link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css\">\n<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>\n<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n\n<body >\n<div class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-1\">\n\t\t\t\t\n\t\t\t\t<aside class=\"sidebar-left\">\n\t\t\t\t<a class=\"company-logo\">Filmbeat</a>\n\t\t\t\t<div class=\"sidebar-links\">\n\t\t\t\t\t<a class=\"link-blue\" routerLink=\"/trending\"><i class=\"fa fa-bar-chart\"></i>Trending Chart</a>\n\t\t\t\t\t<a class=\"link-red \" routerLink=\"/popular\"> <i class=\"fa fa-file-video-o\"></i>Popular Movies</a>\n\t\t\t\t</div>\n\t\t\t\t</aside>\t\n\t\t\t</div>\n\n\t\t\t<div class=\"col-sm-11\">\n\t\t\t\t\t<router-outlet ></router-outlet>\n\t\t\t</div>\n\t</div>\n\n\n</div>\n</body>"
 
 /***/ }),
 
@@ -169,12 +268,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _trending_trending_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./trending/trending.component */ "./src/app/trending/trending.component.ts");
 /* harmony import */ var _app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing/app-routing.module */ "./src/app/app-routing/app-routing.module.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../_services/index */ "./src/_services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -199,7 +300,7 @@ var AppModule = /** @class */ (function () {
                 _app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(_app_routing_app_routing_module__WEBPACK_IMPORTED_MODULE_6__["routes"])
             ],
-            providers: [],
+            providers: [_services_index__WEBPACK_IMPORTED_MODULE_8__["PagerService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -217,7 +318,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "a {\r\n    cursor: pointer;\r\n}\r\n* {\r\n    box-sizing: border-box;\r\n  }\r\nbody{\r\n  background-image: url('data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAnQAAAEYCAYAAADVt2tzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAULSURBVHhe7dYxEQAgDAAxzGCBsf5dFR1/lyEecu6bBQCgS+gAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAAOKEDgAgTugAANJmP9qX9Rv3512QAAAAAElFTkSuQmCC');\r\n  }\r\nh6{\r\n    color: antiquewhite\r\n  }\r\n.pad{\r\n    padding: 10px;\r\n  }\r\nli{\r\n    padding: 5px;\r\n  }\r\nbody {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n  }\r\nli{\r\n   color: white\r\n   }\r\n/* Float four columns side by side */\r\n.column {\r\n    float: left;\r\n    width: 25%;\r\n    padding: 0 10px;\r\n  }\r\n/* Remove extra left and right margins, due to padding */\r\n.row {margin: 0 -5px;}\r\n/* Clear floats after the columns */\r\n.row:after {\r\n    content: \"\";\r\n    display: table;\r\n    clear: both;\r\n  }\r\n/* Responsive columns */\r\n@media screen and (max-width: 600px) {\r\n    .column {\r\n      width: 100%;\r\n      display: block;\r\n      margin-bottom: 20px;\r\n    }\r\n  }\r\n/* Style the counter cards */\r\n.card {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    padding: 16px;\r\n    text-align: center;\r\n    background-color: #f1f1f1;\r\n  }"
 
 /***/ }),
 
@@ -228,7 +329,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <section class=\"banner-bottom-wthreelayouts py-lg-5 py-3\">\n      <div class=\"container-fluid\">\n          <div class=\"inner-sec-shop px-lg-4 px-3\">\n                <div class=\"slider-img mid-sec\">\n                  <h3 class=\"tittle-grraabit my-lg-4 my-4\" style=\"text-align: center\">POPULAR MOVIES</h3>\n                    <div class=\"row\">\n                          <div class=\"col-sm-4\"></div>\n                          <div class=\"col-sm-4\"></div>\n                          <div class=\"col-sm-4\"></div>\n                    </div>\n                  \n                  <div class=\"mid-slider\"> \n                          <div class=\"row\" id=\"progress_3\">\n                            <div class=\"col-sm-4\"></div>\n                            <div class=\"col-sm-4\" style=\"text-align: center\">\n                                <img  src=\"../../assets/images/30.gif\">                           \n                            </div>\n                            <div class=\"col-sm-4\"></div>\n                          </div>\n                    <div id=\"target_3\">\n                        <div  *ngFor=\"let movie of popular_movielist\" id=\"parent_3\" style=\"width: 340px; height:450px;margin-right: 20px;\">\n                        <div>\n                          <img src=\"https://image.tmdb.org/t/p/w500/{{movie.movieimgpath}}\"  style=\"min-height: 350px; max-height: 350px;\" alt=\"Card image cap\">\n                        </div>\n                        <h4 style=\"text-align: center\">{{ movie.moviename}}</h4>\n                        </div>\n                      </div>\n                    </div>\n                </div>\n            </div>\n       </div>\n  </section>"
+module.exports = "<body style=\"margin-top:16px;margin-bottom:54px;color: #25363E\">\n <div class=\"container\" id=\"content\">\n      <div class=\"text-center\">\n         \n <div class=\"container-fluid\">\n    <div class=\"col\">     \n      <div class=\"row-sm-3\">\n       <div class=\"row\" style=\"margin-top: 30px;\">\n         <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[0]}}\" style=\"max-height: 350px;max-width: 250px;\" class=\"pad\" alt=\"Card image cap\"><h6> {{names[0]}} </h6> </div>\n         <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[1]}}\" style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[1]}} </h6>  </div>\n         <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[2]}}\" style=\"max-height: 350px;;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[2]}} </h6>  </div>\n         <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[3]}}\" style=\"max-height: 350px;;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[3]}} </h6> </div>\n       </div>\n     </div>\n     \n      <div class=\"row-sm-3\">\n         <div class=\"row\" style=\"margin-top: 30px\">\n             <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[4]}}\" style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[4]}} </h6>   </div>\n             <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[5]}}\" style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[5]}} </h6>  </div>\n             <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[6]}}\" style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[6]}} </h6> </div>\n             <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[7]}}\"  style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[7]}} </h6>  </div>\n           </div>\n      </div>\n \n      <div class=\"row-sm-3\">\n         <div class=\"row\" style=\"margin-top: 30px\">\n             <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[8]}}\"  style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[8]}} </h6>  </div>\n             <div class=\"col-sm-3\">  <img src=\"https://image.tmdb.org/t/p/w500/{{urls[9]}}\" style=\"max-height: 350px;max-width: 250px\" class=\"pad\" alt=\"Card image cap\"> <h6> {{names[9]}} </h6>  </div>\n           </div>\n      </div>\n\n      <div class=\"row-sm-3\" style=\"background-color: #25303E\" >\n          <div class=\"row\" style=\"margin-top: 30px;\" >\n              <div class=\"col-sm-3\"></div>\n              <div class=\"col-sm-3\"></div>\n              <div class=\"col-sm-3\"></div>\n              <div class=\"col-sm-3\">\n                  <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n                      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n                          <a >Page</a>\n                      </li>\n                     \n                      <li>\n                        <a>{{ pager.currentPage }}  of {{ pager.totalPages }}</a>\n                      </li>\n                      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n                          <a (click)=\"setPage(pager.currentPage - 1)\" ><</a>\n                      </li>\n                      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n                          <a (click)=\"setPage(pager.currentPage + 1)\" >></a>\n                      </li>\n                  </ul>  \n              </div>\n            </div>\n      </div>\n\n    </div>\n  </div>\n  </div>\n</div>\n</body>"
 
 /***/ }),
 
@@ -244,6 +345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopularComponent", function() { return PopularComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_services/index */ "./src/_services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -255,65 +357,60 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var PopularComponent = /** @class */ (function () {
-    function PopularComponent(http) {
-        this.http = http;
-        this.popular_movielist = [];
-        this.fetch_movielist();
-    }
-    PopularComponent.prototype.fetch_movielist = function () {
+    function PopularComponent(http, pagerService) {
         var _this = this;
+        this.http = http;
+        this.pagerService = pagerService;
+        this.movie_rating = [];
+        this.urls = [];
+        this.names = [];
+        this.name_arr = [];
+        // pager object
+        this.pager = {};
+        var movie_img_arr = [];
         this.http.get("https://api.themoviedb.org/3/movie/popular?api_key=4b10cf2f8e6ed1fcb506bd3929ecee40").subscribe(function (res) {
             res['results'].forEach(function (movie) {
                 var data = {};
                 data['movieimgpath'] = movie['backdrop_path'];
                 data['moviename'] = movie['title'];
-                // console.log(data);
-                _this.popular_movielist.push(data);
-            });
-        });
-    };
-    PopularComponent.prototype.triggerforclosedcarousel = function () {
-        // console.log('cals');
-        $('#target_3.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: true
-                },
-                600: {
-                    items: 2,
-                    nav: false
-                },
-                900: {
-                    items: 3,
-                    nav: false
-                },
-                1000: {
-                    items: 4,
-                    nav: true,
-                    loop: false,
-                    margin: 20
+                movie_img_arr.push({ "name": movie['backdrop_path'] });
+                if (movie['title'].length > 22) {
+                    var mv_name = movie['title'];
+                    _this.name_arr.push(mv_name.split(':')[0]);
                 }
-            }
+                else {
+                    _this.name_arr.push(movie['title']);
+                }
+                if (res['results'].length == movie_img_arr.length) {
+                    _this.allItems = movie_img_arr;
+                }
+            });
+            // initialize to page 1
+            _this.setPage(1);
         });
+    }
+    PopularComponent.prototype.ngOnInit = function () { };
+    PopularComponent.prototype.setPage = function (page) {
+        if (page < 1 || page > this.pager.totalPages) {
+            return;
+        }
+        // get pager object from service
+        this.pager = this.pagerService.getPager(this.allItems.length, page);
+        // get current page of items
+        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+        this.names = this.name_arr.slice(this.pager.startIndex, this.pager.endIndex + 1);
+        // console.log(this.names);
+        // console.log(this.pagedItems);
+        this.change_pageContent(this.pagedItems);
     };
-    PopularComponent.prototype.ngOnInit = function () {
-        var meta = this;
-        document.getElementById('target_3').style.display = 'none';
-        setTimeout(function () {
-            document.getElementById('progress_3').style.display = 'none';
-            document.getElementById('target_3').style.display = 'block';
-            $('#target_3').addClass("owl-carousel owl-theme owl-loaded owl-drag");
-            meta.triggerforclosedcarousel();
-        }, 3000);
-    };
-    PopularComponent.prototype.ngOnDestroy = function () {
-        var meta = this;
-        clearInterval(meta.triggerCarouselInterval);
+    PopularComponent.prototype.change_pageContent = function (image_arr) {
+        var _this = this;
+        this.urls.length = 0;
+        image_arr.forEach(function (image_url, index) {
+            _this.urls[index] = image_url['name'];
+        });
     };
     PopularComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -321,7 +418,7 @@ var PopularComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./popular.component.html */ "./src/app/popular/popular.component.html"),
             styles: [__webpack_require__(/*! ./popular.component.css */ "./src/app/popular/popular.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _services_index__WEBPACK_IMPORTED_MODULE_2__["PagerService"]])
     ], PopularComponent);
     return PopularComponent;
 }());
@@ -348,7 +445,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"chartContainer\" style=\"margin-top: 6%; height: 400px; width: 100%;\"></div>"
+module.exports = "<div id=\"chartContainer\" style=\"margin-top: 156px;margin-bottom: 197px; height: 400px; width: 100%;\"></div>\r\n\r\n"
 
 /***/ }),
 
@@ -380,6 +477,7 @@ var TrendingComponent = /** @class */ (function () {
     function TrendingComponent(http) {
         this.http = http;
         this.movie_rating = [];
+        this.urls = [];
         this.fetch_rating();
     }
     TrendingComponent.prototype.fetch_rating = function () {
@@ -405,12 +503,19 @@ var TrendingComponent = /** @class */ (function () {
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             exportEnabled: true,
+            backgroundColor: "#25363E",
+            // height: '400px',
+            color: "white",
             title: {
-                text: 'RATINGS FOR TRENDING MOVIES'
+            // text: 'RATINGS FOR TRENDING MOVIES'
             },
             axisY: {
                 maximum: 10,
-                interval: 2
+                interval: 2,
+                labelFontColor: "white",
+            },
+            axisX: {
+                labelFontColor: "white",
             },
             data: [{
                     type: "column",

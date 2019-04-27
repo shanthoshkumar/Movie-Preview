@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 declare let require:any;
+declare let $:any;
 var CanvasJS=require('../../assets/canvasjs.min.js');
 
 @Component({
@@ -10,6 +11,7 @@ var CanvasJS=require('../../assets/canvasjs.min.js');
 })
 export class TrendingComponent implements OnInit {
   movie_rating=[];
+  urls=[];
   constructor(private http:HttpClient){
     this.fetch_rating();
   }
@@ -40,12 +42,19 @@ export class TrendingComponent implements OnInit {
     let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
+      backgroundColor:"#25363E",
+      // height: '400px',
+      color:"white",
       title: {
-        text: 'RATINGS FOR TRENDING MOVIES'
+        // text: 'RATINGS FOR TRENDING MOVIES'
       },
        axisY:{
           maximum: 10,
-          interval:2
+          interval:2,
+          labelFontColor: "white",
+         },
+         axisX:{
+          labelFontColor: "white",
          },
       data: [{
         type: "column",
@@ -56,6 +65,7 @@ export class TrendingComponent implements OnInit {
     chart.render();
   }
 
-ngOnInit() {}
+   
+ngOnInit(){}
 
 }

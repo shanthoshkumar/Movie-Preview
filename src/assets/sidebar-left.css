@@ -15,10 +15,11 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #292c2f;
+	background-color: #25363E
+	;
 	width: 120px;
 	height: 100%;
-	padding: 20px 0;
+	/* padding: 20px 0; */
 }
 
 .sidebar-left a.company-logo {
@@ -35,7 +36,7 @@
 	font-weight: normal;
 	line-height: 2.6;
 	border-radius: 50%;
-	background-color:  #181a1b;
+	background-color: #25363E;
 }
 
 .sidebar-left .sidebar-links {
@@ -47,7 +48,7 @@
 	text-decoration: none;
 	margin: 0 auto 5px auto;
 	padding: 20px 0;
-	background-color: #35393e;
+	background-color: #25363E;
 	text-align: center;
 	color:  #b3bcc5;
 	font-size: 12px;

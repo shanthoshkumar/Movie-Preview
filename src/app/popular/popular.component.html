@@ -1,32 +1,61 @@
-  <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
-      <div class="container-fluid">
-          <div class="inner-sec-shop px-lg-4 px-3">
-                <div class="slider-img mid-sec">
-                  <h3 class="tittle-grraabit my-lg-4 my-4" style="text-align: center">POPULAR MOVIES</h3>
-                    <div class="row">
-                          <div class="col-sm-4"></div>
-                          <div class="col-sm-4"></div>
-                          <div class="col-sm-4"></div>
-                    </div>
-                  
-                  <div class="mid-slider"> 
-                          <div class="row" id="progress_3">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="text-align: center">
-                                <img  src="../../assets/images/30.gif">                           
-                            </div>
-                            <div class="col-sm-4"></div>
-                          </div>
-                    <div id="target_3">
-                        <div  *ngFor="let movie of popular_movielist" id="parent_3" style="width: 340px; height:450px;margin-right: 20px;">
-                        <div>
-                          <img src="https://image.tmdb.org/t/p/w500/{{movie.movieimgpath}}"  style="min-height: 350px; max-height: 350px;" alt="Card image cap">
-                        </div>
-                        <h4 style="text-align: center">{{ movie.moviename}}</h4>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
+<body style="margin-top:16px;margin-bottom:54px;color: #25363E">
+ <div class="container" id="content">
+      <div class="text-center">
+         
+ <div class="container-fluid">
+    <div class="col">     
+      <div class="row-sm-3">
+       <div class="row" style="margin-top: 30px;">
+         <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[0]}}" style="max-height: 350px;max-width: 250px;" class="pad" alt="Card image cap"><h6> {{names[0]}} </h6> </div>
+         <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[1]}}" style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[1]}} </h6>  </div>
+         <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[2]}}" style="max-height: 350px;;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[2]}} </h6>  </div>
+         <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[3]}}" style="max-height: 350px;;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[3]}} </h6> </div>
        </div>
-  </section>
+     </div>
+     
+      <div class="row-sm-3">
+         <div class="row" style="margin-top: 30px">
+             <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[4]}}" style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[4]}} </h6>   </div>
+             <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[5]}}" style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[5]}} </h6>  </div>
+             <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[6]}}" style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[6]}} </h6> </div>
+             <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[7]}}"  style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[7]}} </h6>  </div>
+           </div>
+      </div>
+ 
+      <div class="row-sm-3">
+         <div class="row" style="margin-top: 30px">
+             <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[8]}}"  style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[8]}} </h6>  </div>
+             <div class="col-sm-3">  <img src="https://image.tmdb.org/t/p/w500/{{urls[9]}}" style="max-height: 350px;max-width: 250px" class="pad" alt="Card image cap"> <h6> {{names[9]}} </h6>  </div>
+           </div>
+      </div>
+
+      <div class="row-sm-3" style="background-color: #25303E" >
+          <div class="row" style="margin-top: 30px;" >
+              <div class="col-sm-3"></div>
+              <div class="col-sm-3"></div>
+              <div class="col-sm-3"></div>
+              <div class="col-sm-3">
+                  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                      <li [ngClass]="{disabled:pager.currentPage === 1}">
+                          <a >Page</a>
+                      </li>
+                     
+                      <li>
+                        <a>{{ pager.currentPage }}  of {{ pager.totalPages }}</a>
+                      </li>
+                      <li [ngClass]="{disabled:pager.currentPage === 1}">
+                          <a (click)="setPage(pager.currentPage - 1)" ><</a>
+                      </li>
+                      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                          <a (click)="setPage(pager.currentPage + 1)" >></a>
+                      </li>
+                  </ul>  
+              </div>
+            </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+</body>

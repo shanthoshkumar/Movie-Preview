@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrendingComponent } from './trending/trending.component';
 import { AppRoutingModule, routes } from './app-routing/app-routing.module';
 import { RouterModule } from '@angular/router';
-
+import { PagerService } from '../_services/index';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     RouterModule.forRoot(routes) 
      ],
-  providers: [],
+  providers: [PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
